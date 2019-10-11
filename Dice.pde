@@ -1,5 +1,5 @@
 void setup() {
-	size(700,700);
+	size(690,690);
 	background(30);
 	noLoop();
 	
@@ -44,7 +44,8 @@ class Die //models one single dice cube
 	void show() {
 		noStroke();
 		fill(100);
-		square(myX,myY,51);
+		//square(myX,myY,51);
+		rect(myX,myY,50,50,7);
 
 		if (count == 1)
 			one();
