@@ -1,12 +1,15 @@
 void setup() {
-	size(690,690);
+	size(740,690);
 	background(30);
 	noLoop();
 	
 
 }
-
+int sum=0;
+int count=0;
 void draw() {
+
+	//int count=0;
 
 	for (int x=20;x<680;x+=60){
 		int y=20;
@@ -15,11 +18,16 @@ void draw() {
 		for (y=20;y<680;y+=60){
 			Die diey = new Die(x,y);
 			diey.show();
+			//sum+=count;
 		}
 	}
+
+	text("total=" + sum, 330,600);
+	
 }
 
 void mousePressed() {
+	sum = 0;
 	redraw();
 }
 
@@ -38,13 +46,12 @@ class Die //models one single dice cube
 
 	void roll() {
 		count = (int)(Math.random()*6)+1;
-		//count = 1;
+		sum = sum+ count;
 	}
 
 	void show() {
 		noStroke();
 		fill(100);
-		//square(myX,myY,51);
 		rect(myX,myY,50,50,7);
 
 		if (count == 1)
@@ -59,6 +66,10 @@ class Die //models one single dice cube
 			five();
 		else 
 			six();
+
+		fill(20);
+		textSize(18);
+		// text("total=" + sum, 330,600);
 
 	}
 
